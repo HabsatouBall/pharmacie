@@ -24,8 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-    Schema::defaultStringLength(191); //NEW: Increase StringLength
-
+        Schema::defaultStringLength(191); //NEW: Increase StringLength
         $this->app->alias('bugsnag.logger', \Illuminate\Contracts\Logging\Log::class);
         $this->app->alias('bugsnag.logger', \Psr\Log\LoggerInterface::class);
     }
