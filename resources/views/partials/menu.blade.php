@@ -44,14 +44,34 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
-                    <i class="fas fa-cogs nav-icon">
 
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  nav-dropdown-toggle">
+                    <i class="fas fa-cogs nav-icon">
                     </i>
-                    {{ trans('global.product.title') }}
+                    Gestion Medicaments
                 </a>
+                <ul class="nav-dropdown-items">
+                  <li class="nav-item">
+                      <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                          <i class="fas fa-cogs nav-icon">
+
+                          </i>
+                          {{ trans('global.product.title') }}
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route("admin.commandes.index") }}" class="nav-link {{ request()->is('admin/commandes') || request()->is('admin/commandes/*') ? 'active' : '' }}">
+                          <i class="fas fa-cogs nav-icon">
+
+                          </i>
+                          <!-- {{ trans('global.product.title') }} -->
+                          Commandes
+                      </a>
+                  </li>
+                </ul>
             </li>
+
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-sign-out-alt">
