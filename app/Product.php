@@ -18,10 +18,10 @@ class Product extends Model
     protected $fillable = [
         'name',
         'price',
-        'categorie_id'
-        'vente_id'
-        'prixVente'
-        'prixAchat'
+        'categorie_id',
+        'vente_id',
+        'prixVente',
+        'prixAchat',
         'created_at',
         'updated_at',
         'deleted_at',

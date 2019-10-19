@@ -24,7 +24,12 @@ class VenteController extends Controller
      */
     public function create()
     {
-        //
+        {
+        abort_unless(\Gate::allows('vente_create'), 403);
+
+        return view('admin.vente.create');
+    }
+
     }
 
     /**

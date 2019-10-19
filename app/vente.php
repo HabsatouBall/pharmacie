@@ -19,7 +19,7 @@ class vente extends Model
         'nom',
         'numero',
         'NombreTotal',
-        'montantTotal'
+        'montantTotal',
         'created_at',
         'updated_at',
         'deleted_at',

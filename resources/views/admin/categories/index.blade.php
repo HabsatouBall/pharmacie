@@ -1,4 +1,4 @@
- @extends('layouts.admin')
+@extends('layouts.admin')
 @section('content')
 @can('product_create')
     <div style="margin-bottom: 10px;" class="row">
