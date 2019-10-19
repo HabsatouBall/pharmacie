@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class categorie extends Model
 {
@@ -21,7 +22,7 @@ class categorie extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-       
+
     ];
 
 }

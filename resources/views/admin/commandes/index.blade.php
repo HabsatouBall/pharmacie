@@ -3,15 +3,17 @@
 @can('product_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.products.create") }}">
-                {{ trans('global.add') }} {{ trans('global.product.title_singular') }}
+            <a class="btn btn-success" href="{{ route("admin.commandes.create") }}">
+                <!-- {{ trans('global.add') }} {{ trans('global.product.title_singular') }} -->
+                add Commande
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('global.product.title_singular') }} {{ trans('global.list') }}
+        <!-- {{ trans('global.commande.title_singular') }} {{ trans('global.list') }} -->
+        Liste de Commandes
     </div>
 
     <div class="card-body">
@@ -23,13 +25,14 @@
 
                         </th>
                         <th>
-                            {{ trans('global.product.fields.name') }}
+                            <!-- {{ trans('global.product.fields.name') }} -->
+
                         </th>
                         <th>
-                            {{ trans('global.product.fields.description') }}
+                            <!-- {{ trans('global.product.fields.description') }} -->
                         </th>
                         <th>
-                            {{ trans('global.product.fields.price') }}
+                            <!-- {{ trans('global.product.fields.price') }} -->
                         </th>
                         <th>
                             &nbsp;
@@ -37,19 +40,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $key => $product)
+                  {{$commandes }}
+                    @foreach($commandes as $key => $commande)
                         <tr data-entry-id="{{ $product->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $product->name ?? '' }}
+                                {{ $commande->nom ?? '' }}
                             </td>
                             <td>
-                                {{ $product->description ?? '' }}
+                                {{ $commande->numero ?? '' }}
                             </td>
                             <td>
-                                {{ $product->price ?? '' }}
+                                {{ $commande->NombreTotal ?? '' }}
+                            </td>
+                            <td>
+                                {{ $commande->montantTotal ?? '' }}
+                            </td>
+                            <td>
+                                {{ $commande->statut ?? '' }}
                             </td>
                             <td>
                                 @can('product_show')

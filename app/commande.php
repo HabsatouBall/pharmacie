@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class commande extends Model
 {
@@ -19,13 +20,13 @@ class commande extends Model
         'user_id',
         'nom',
         'numero',
-        'NombreTotal'
-        'montantTotal'
-        'statut'
+        'NombreTotal',
+        'montantTotal',
+        'statut',
         'created_at',
         'updated_at',
         'deleted_at',
-        
+
     ];
 
 }

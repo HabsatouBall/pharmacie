@@ -21,6 +21,8 @@ class CommandeController extends Controller
 
       $commandes = Commande::all();
 
+      var_dump($commandes);die();
+
       return view('admin.commandes.index', compact('commandes'));
     }
 
