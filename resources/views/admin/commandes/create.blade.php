@@ -3,50 +3,84 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('global.product.title_singular') }}
+        ajouter commande<!-- {{ trans('global.create') }} {{ trans('global.commandes.title_singular') }} -->
     </div>
-
+      @csrf
+            <div class="form-group {{ $errors->has('nom') ? 'has-error' : '' }}">
+                <label for="nom">statut</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="{{ old('nom', isset($commandes) ? $commandes->nom : '') }}">
+                @if($errors->has('nom'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('nom') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                  
+                </p>
     <div class="card-body">
-        <form action="{{ route("admin.products.store") }}" method="POST" enctype="multipart/form-data">
+        <form action=""  enctype="multipart/form-data">
             @csrf
-            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                <label for="name">{{ trans('global.product.fields.name') }}*</label>
-                <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($product) ? $product->name : '') }}">
-                @if($errors->has('name'))
+            <div class="form-group {{ $errors->has('nom') ? 'has-error' : '' }}">
+                <label for="nom">nom</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="{{ old('nom', isset($commandes) ? $commandes->nom : '') }}">
+                @if($errors->has('nom'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('name') }}
+                        {{ $errors->first('nom') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('global.product.fields.name_helper') }}
+                   
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-                <label for="description">{{ trans('global.product.fields.description') }}</label>
-                <textarea id="description" name="description" class="form-control ">{{ old('description', isset($product) ? $product->description : '') }}</textarea>
-                @if($errors->has('description'))
+            @csrf
+            <div class="form-group {{ $errors->has('nom') ? 'has-error' : '' }}">
+                <label for="nom">numero</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="{{ old('nom', isset($commandes) ? $commandes->nom : '') }}">
+                @if($errors->has('nom'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('description') }}
+                        {{ $errors->first('nom') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('global.product.fields.description_helper') }}
+                  
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-                <label for="price">{{ trans('global.product.fields.price') }}</label>
-                <input type="number" id="price" name="price" class="form-control" value="{{ old('price', isset($product) ? $product->price : '') }}" step="0.01">
-                @if($errors->has('price'))
+             @csrf
+            <div class="form-group {{ $errors->has('nom') ? 'has-error' : '' }}">
+                <label for="nom">date</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="{{ old('nom', isset($commandes) ? $commandes->nom : '') }}">
+                @if($errors->has('nom'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('price') }}
+                        {{ $errors->first('nom') }}
+                    </em>
+                @endif
+            <div class="form-group {{ $errors->has('NombreTotal') ? 'has-error' : '' }}">
+                <label for="NombreTotal">NombreTotal</label>
+                <input type="number" id="NombreTotal" name="NombreTotal" class="form-control" value="{{ old('NombreTotal', isset($commandes) ? $commandes->NombreTotal : '') }}" step="0.01">
+                @if($errors->has('NombreTotal'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('NombreTotal') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('global.product.fields.price_helper') }}
+                    
+                </p>
+            </div>
+             @csrf
+            <div class="form-group {{ $errors->has('nom') ? 'has-error' : '' }}">
+                <label for="nom">prix</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="{{ old('nom', isset($commandes) ? $commandes->nom : '') }}">
+                @if($errors->has('nom'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('nom') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                  
                 </p>
             </div>
             <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+                <input class="btn btn-danger" type="submit" value="enregistrer">
             </div>
         </form>
     </div>

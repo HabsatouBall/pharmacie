@@ -17,6 +17,7 @@ class categorie extends Model
 
     protected $fillable = [
         'commande_id',
+        'nom',
         'code',
         'libelle',
         'created_at',

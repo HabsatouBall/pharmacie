@@ -1,6 +1,6 @@
  @extends('layouts.admin')
 @section('content')
-@can('product_create')
+<!-- @can('commandes_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route("admin.products.create") }}">
@@ -8,10 +8,16 @@
             </a>
         </div>
     </div>
-@endcan
+@endcan -->
+<div style="margin-bottom: 10px;" class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-success" href="{{ route("admin.commandes.create") }}">
+                ajouter
+            </a>
+        </div>
 <div class="card">
     <div class="card-header">
-        {{ trans('global.product.title_singular') }} {{ trans('global.list') }}
+        Liste des commandes
     </div>
 
     <div class="card-body">
@@ -23,13 +29,13 @@
 
                         </th>
                         <th>
-                            {{ trans('global.product.fields.name') }}
+                          NOM
                         </th>
                         <th>
-                            {{ trans('global.product.fields.description') }}
+                            Numero
                         </th>
                         <th>
-                            {{ trans('global.product.fields.price') }}
+                           NombreTotal
                         </th>
                         <th>
                             &nbsp;
@@ -37,32 +43,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $key => $product)
+                    @foreach($commandes as $key => $product)
                         <tr data-entry-id="{{ $product->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $product->name ?? '' }}
+                                {{ $product->nom ?? '' }}
                             </td>
                             <td>
-                                {{ $product->description ?? '' }}
+                                {{ $product->numero?? '' }}
                             </td>
                             <td>
-                                {{ $product->price ?? '' }}
+                                {{ $product->NombreTotal ?? '' }}
                             </td>
                             <td>
-                                @can('product_show')
+                                @can('commandes_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.products.show', $product->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
-                                @can('product_edit')
+                                @can('commandes_edit')
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.products.edit', $product->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
-                                @can('product_delete')
+                                @can('commandes_delete')
                                     <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

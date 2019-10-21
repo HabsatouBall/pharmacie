@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('products', 'ProductsController');
     
-    Route::resource('commandes', 'CommandeController');
+    Route::resource('commandes', 'CommandesController');
 
     Route::resource('vente', 'VenteController');
 

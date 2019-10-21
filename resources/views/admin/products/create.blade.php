@@ -33,18 +33,34 @@
                     {{ trans('global.product.fields.description_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-                <label for="price">{{ trans('global.product.fields.price') }}</label>
-                <input type="number" id="price" name="price" class="form-control" value="{{ old('price', isset($product) ? $product->price : '') }}" step="0.01">
-                @if($errors->has('price'))
+            
+            <div class="form-group {{ $errors->has('categorie_id') ? 'has-error' : '' }}">
+                <label for="categorie_id">categorie_id</label>
+                <input type="number" id="categorie_id" name="categorie_id" class="form-control" value="{{ old('categorie_id', isset($product) ? $product->categorie_id : '') }}" step="0.01">
+                @if($errors->has('categorie_id'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('price') }}
+                        {{ $errors->first('categorie_id') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('global.product.fields.price_helper') }}
+                   
                 </p>
-            </div>
+                <div class="form-group {{ $errors->has('prixAchat') ? 'has-error' : '' }}">
+                <label for="prixAchat">prixAchat</label>
+                <input type="number" id="prixAchat" name="prixAchat" class="form-control" value="{{ old('prixAchat', isset($product) ? $product->prixAchat : '') }}" step="0.01">
+                @if($errors->has('prixAchat'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('prixAchat') }}
+                    </em>
+                @endif
+                 <div class="form-group {{ $errors->has('prixVente') ? 'has-error' : '' }}">
+                <label for="prixVente">prixVente</label>
+                <input type="number" id="prixVente" name="prixVente" class="form-control" value="{{ old('prixVente', isset($product) ? $product->prixVente : '') }}" step="0.01">
+                @if($errors->has('prixVente'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('prixVente') }}
+                    </em>
+                @endif
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>

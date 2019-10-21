@@ -19,7 +19,6 @@ class Product extends Model
         'name',
         'price',
         'categorie_id',
-        'vente_id',
         'prixVente',
         'prixAchat',
         'created_at',

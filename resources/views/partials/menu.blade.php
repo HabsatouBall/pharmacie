@@ -7,7 +7,7 @@
                     <i class="nav-icon fas fa-tachometer-alt">
 
                     </i>
-                   <h3 style="margin-left: 18px; margin-top: -20px;">Menu</h3>
+                   <h3 style="margin-left: 18px; margin-top: -20px;">Acceuil</h3>
                 </a>
             </li>
             <li class="nav-item nav-dropdown">
@@ -54,7 +54,7 @@
                 <ul class="nav-dropdown-items">
                   <li class="nav-item">
                       <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
-                          <i class="fas fa-cogs nav-icon">
+                          <i class="fa fa-medkit">
 
                           </i>
                           {{ trans('global.product.title') }}
@@ -62,11 +62,30 @@
                   </li>
                   <li class="nav-item">
                       <a href="{{ route("admin.commandes.index") }}" class="nav-link {{ request()->is('admin/commandes') || request()->is('admin/commandes/*') ? 'active' : '' }}">
-                          <i class="fas fa-cogs nav-icon">
+                          <i class="fa fa-plus-square">
 
                           </i>
                           <!-- {{ trans('global.product.title') }} -->
                           Commandes
+                      </a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href="{{ route("admin.commandes.index") }}" class="nav-link {{ request()->is('admin/commandes') || request()->is('admin/commandes/*') ? 'active' : '' }}">
+                          <i class="fa fa-ambulance">
+
+                          </i>
+                          <!-- {{ trans('global.product.title') }} -->
+                          Vente
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route("admin.commandes.index") }}" class="nav-link {{ request()->is('admin/commandes') || request()->is('admin/commandes/*') ? 'active' : '' }}">
+                          <i class="fa fa-file-code-o">
+
+                          </i>
+                          <!-- {{ trans('global.product.title') }} -->
+                          Categories
                       </a>
                   </li>
                 </ul>
