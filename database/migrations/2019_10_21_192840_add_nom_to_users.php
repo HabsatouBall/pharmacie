@@ -14,11 +14,10 @@ class AddNomToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-          $table->string('nom');
-          $table->string('prenom');
-          $table->string('tel');
-          $table->string('addresse');
-
+        $table->string('nom')->nullable();
+        $table->string('prenom')->nullable();
+        $table->string('tel')->nullable();
+        $table->string('addresse')->nullable();
         });
     }
 

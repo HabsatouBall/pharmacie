@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyCommandesRequest;
 use App\Http\Requests\StoreCommandesRequest;
 use App\Http\Requests\UpdateCommandesRequest;
-use App\Commandes;
+use App\Commande;
+use App\categorie;
+use App\User;
 
 class CommandesController extends Controller
 {
@@ -14,7 +16,16 @@ class CommandesController extends Controller
     {
         // abort_unless(\Gate::allows('commandes_access'), 403);
 
-        $commandes = Commandes::all();
+        $commandes = Commande::all();
+        //$cat = categorie::all();
+        $user = User::all();
+
+        //var_dump($commandes);
+        //var_dump($cat);
+        var_dump($user);
+
+
+        die();
 
         return view('admin.commandes.index', compact('commandes'));
     }
