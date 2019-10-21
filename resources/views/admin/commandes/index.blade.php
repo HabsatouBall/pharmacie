@@ -1,20 +1,24 @@
  @extends('layouts.admin')
 @section('content')
-<!-- @can('commandes_create')
+@can('product_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.products.create") }}">
-                {{ trans('global.add') }} {{ trans('global.product.title_singular') }}
+            <a class="btn btn-success" href="{{ route("admin.commandes.create") }}">
+                <!-- {{ trans('global.add') }} {{ trans('global.product.title_singular') }} -->
+                <i class="fa fa-plus-square">
+
+                </i>
+                Nouvelle Demande
             </a>
         </div>
     </div>
-@endcan -->
-<div style="margin-bottom: 10px;" class="row">
+@endcan
+<!-- <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route("admin.commandes.create") }}">
                 ajouter
             </a>
-        </div>
+        </div> -->
 <div class="card">
     <div class="card-header">
         Liste des commandes

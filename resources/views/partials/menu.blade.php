@@ -10,12 +10,13 @@
                    <h3 style="margin-left: 18px; margin-top: -20px;">Acceuil</h3>
                 </a>
             </li>
-            <li class="nav-item nav-dropdown">
+            <li class="nav-item nav-dropdown" style="width:1238px !important">
                 <a class="nav-link  nav-dropdown-toggle">
                     <i class="fas fa-users nav-icon">
 
                     </i>
-                    {{ trans('global.userManagement.title') }}
+                    <!-- {{ trans('global.userManagement.title') }} -->
+                    Gestion Utilisateurs
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
