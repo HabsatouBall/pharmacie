@@ -34,7 +34,11 @@
                             {{ trans('global.product.fields.description') }}
                         </th>
                         <th>
-                            {{ trans('global.product.fields.price') }}
+                            <!-- {{ trans('global.product.fields.price') }} -->
+                            Prix Achat
+                        </th>
+                        <th>
+                           Date Création
                         </th>
                         <th>
                             &nbsp;
@@ -54,7 +58,10 @@
                                 {{ $product->description ?? '' }}
                             </td>
                             <td>
-                                {{ $product->price ?? '' }}
+                                {{ $product->prixAchat ?? '' }}
+                            </td>
+                            <td>
+                                {{ $product->created_at->format('d/m/Y') ?? '' }}
                             </td>
                             <td>
                                 @can('product_show')
