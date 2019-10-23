@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommandesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateCommandesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commandes', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->integer('commande_id')->nullable();
+            $table->foreign('commande_id')->references('id')->on('commandes')
               ->onDelete('cascade');
-            $table->string('nom');
-            $table->string('numero')->unique();
-            $table->integer('NombreTotal');
-            $table->decimal('montantTotal', 15, 2)->nullable();
-            $table->string('statut');
+            $table->string('code')->unique();
+            $table->string('libelle')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            
         });
     }
 
@@ -35,6 +33,6 @@ class CreateCommandesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commandes');
+        Schema::dropIfExists('categories');
     }
 }

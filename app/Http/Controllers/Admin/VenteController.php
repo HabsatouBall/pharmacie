@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\vente;
 
 class VenteController extends Controller
 {
@@ -12,10 +13,16 @@ class VenteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+     public function index()
+     {
+         abort_unless(\Gate::allows('commande_create'), 403);
+
+         $ventes = vente::all();
+
+
+         return view('admin.ventes.index', compact('ventes'));
+     }
+
 
     /**
      * Show the form for creating a new resource.

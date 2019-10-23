@@ -24,11 +24,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('products/destroy', 'ProductsController@massDestroy')->name('products.massDestroy');
 
     Route::resource('products', 'ProductsController');
-    
+
     Route::resource('commandes', 'CommandesController');
 
-    Route::resource('vente', 'VenteController');
+    Route::resource('ventes', 'VenteController');
 
-    Route::resource('categorie', 'CategorieController');
+    Route::resource('categories', 'CategorieController');
 
 });

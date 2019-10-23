@@ -4,8 +4,14 @@
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route("admin.products.create") }}">
-                {{ trans('global.add') }} {{ trans('global.product.title_singular') }}
-            </a>
+                <!-- {{ trans('global.add') }} {{ trans('global.product.title_singular') }} -->
+
+            <i class="fa fa-plus-square">
+
+            </i>
+            Nouveau Categorie
+          </a>
+
         </div>
     </div>
 @endcan
@@ -23,13 +29,16 @@
 
                         </th>
                         <th>
-                            {{ trans('global.product.fields.name') }}
+                            <!-- {{ trans('global.product.fields.name') }} -->
+                            Libelle
                         </th>
                         <th>
-                            {{ trans('global.product.fields.description') }}
+                            <!-- {{ trans('global.product.fields.description') }} -->
+                            Code
                         </th>
                         <th>
-                            {{ trans('global.product.fields.price') }}
+                            <!-- {{ trans('global.product.fields.price') }} -->
+                            Date Création
                         </th>
                         <th>
                             &nbsp;
@@ -37,19 +46,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $key => $product)
+                    @foreach($categories as $key => $product)
                         <tr data-entry-id="{{ $product->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $product->name ?? '' }}
+                                {{ $product->libelle ?? '' }}
                             </td>
                             <td>
-                                {{ $product->description ?? '' }}
+                                {{ $product->code ?? '' }}
                             </td>
                             <td>
-                                {{ $product->price ?? '' }}
+                                {{ $product->created_at->format('d/m/Y') ?? '' }}
                             </td>
                             <td>
                                 @can('product_show')

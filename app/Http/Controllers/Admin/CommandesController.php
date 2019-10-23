@@ -7,25 +7,27 @@ use App\Http\Requests\MassDestroyCommandesRequest;
 use App\Http\Requests\StoreCommandesRequest;
 use App\Http\Requests\UpdateCommandesRequest;
 use App\Commande;
-use App\categorie;
+use App\Categorie;
+use App\vente;
+
 use App\User;
 
 class CommandesController extends Controller
 {
     public function index()
     {
-        // abort_unless(\Gate::allows('commandes_access'), 403);
+        abort_unless(\Gate::allows('commande_create'), 403);
 
         $commandes = Commande::all();
-        //$cat = categorie::all();
-        $user = User::all();
+        // $cat = Categorie::all();
+        //$vent = vente::all();
 
         //var_dump($commandes);
         //var_dump($cat);
-        var_dump($user);
+        //var_dump($vent);
 
 
-        die();
+        //die();
 
         return view('admin.commandes.index', compact('commandes'));
     }
@@ -33,15 +35,15 @@ class CommandesController extends Controller
     public function create()
     {
         // abort_unless(\Gate::allows('commandes_create'), 403);
-
+        abort_unless(\Gate::allows('commande_create'), 403);
         return view('admin.commandes.create');
     }
 
     public function store(StoreCommandesRequest $request)
     {
-        // abort_unless(\Gate::allows('commandes_create'), 403);
+        abort_unless(\Gate::allows('commande_create'), 403);
 
-        $commandes = Commandes::create($request->all());
+        $commandes = Commande::create($request->all());
 
         return redirect()->route('admin.commandes.index');
     }

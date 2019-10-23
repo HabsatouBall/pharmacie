@@ -35,14 +35,46 @@
                             {{ trans('global.role.title') }}
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                            <i class="fas fa-user nav-icon">
 
-                            </i>
-                            {{ trans('global.user.title') }}
-                        </a>
+                    <li class="nav-item nav-dropdown">
+                      <a class="nav-link  nav-dropdown-toggle">
+                          <i class="fas fa-users nav-icon">
+
+                          </i>
+                                    Utilisateurs
+                      </a>
+                        <ul class="nav-dropdown-items">
+
+                              <li class="nav-item">
+                                <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                    <i class="fas fa-user nav-icon">
+
+                                      </i>
+                                                      <!-- {{ trans('global.user.title') }} -->
+                                      Employées
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                      <i class="fas fa-user nav-icon">
+
+                                        </i>
+                                                        <!-- {{ trans('global.user.title') }} -->
+                                      Fournisseurs
+                                      </a>
+                                  </li>
+                                <li class="nav-item">
+                                  <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                      <i class="fas fa-user nav-icon">
+
+                                        </i>
+                                                        <!-- {{ trans('global.user.title') }} -->
+                                      Clients
+                                      </a>
+                                  </li>
+                        </ul>
                     </li>
+
                 </ul>
             </li>
 
@@ -72,16 +104,16 @@
                   </li>
 
                   <li class="nav-item">
-                      <a href="{{ route("admin.commandes.index") }}" class="nav-link {{ request()->is('admin/commandes') || request()->is('admin/commandes/*') ? 'active' : '' }}">
+                      <a href="{{ route("admin.ventes.index") }}" class="nav-link {{ request()->is('admin/ventes') || request()->is('admin/ventes/*') ? 'active' : '' }}">
                           <i class="fa fa-ambulance">
 
                           </i>
                           <!-- {{ trans('global.product.title') }} -->
-                          Vente
+                          Ventes
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ route("admin.commandes.index") }}" class="nav-link {{ request()->is('admin/commandes') || request()->is('admin/commandes/*') ? 'active' : '' }}">
+                      <a href="{{ route("admin.categories.index") }}" class="nav-link {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}">
                           <i class="fa fa-file-code-o">
 
                           </i>

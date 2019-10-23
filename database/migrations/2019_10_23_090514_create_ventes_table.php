@@ -15,9 +15,9 @@ class CreateVentesTable extends Migration
     {
         Schema::create('ventes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nom');
+            $table->string('nom')->nullable();
             $table->string('numero')->unique();
-            $table->integer('NombreTotal');
+            $table->integer('NombreTotal')->nullable();
             $table->decimal('montantTotal', 15, 2)->nullable();
             $table->timestamps();
             $table->softDeletes();

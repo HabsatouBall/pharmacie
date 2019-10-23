@@ -1,6 +1,6 @@
  @extends('layouts.admin')
 @section('content')
-@can('product_create')
+@can('commande_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route("admin.commandes.create") }}">
@@ -33,13 +33,22 @@
 
                         </th>
                         <th>
-                          NOM
+                            Libelle
                         </th>
                         <th>
                             Numero
                         </th>
                         <th>
-                           NombreTotal
+                           Nombre Total
+                        </th>
+                        <th>
+                           Montant Total
+                        </th>
+                        <th>
+                           Statut
+                        </th>
+                        <th>
+                           Date Création
                         </th>
                         <th>
                             &nbsp;
@@ -62,18 +71,27 @@
                                 {{ $product->NombreTotal ?? '' }}
                             </td>
                             <td>
-                                @can('commandes_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.products.show', $product->id) }}">
+                                {{ $product->montantTotal ?? '' }}
+                            </td>
+                            <td>
+                                {{ $product->statut ?? '' }}
+                            </td>
+                            <td>
+                                {{ $product->created_at->format('d/m/Y') ?? '' }}
+                            </td>
+                            <td>
+                                @can('product_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.commandes.show', $product->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
-                                @can('commandes_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.products.edit', $product->id) }}">
+                                @can('product_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.commandes.edit', $product->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
-                                @can('commandes_delete')
-                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('product_delete')
+                                    <form action="{{ route('admin.commandes.destroy', $product->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">

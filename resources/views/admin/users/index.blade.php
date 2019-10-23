@@ -35,6 +35,9 @@
                             {{ trans('global.user.fields.email_verified_at') }}
                         </th>
                         <th>
+                           Date Création
+                        </th>
+                        <th>
                             {{ trans('global.user.fields.roles') }}
                         </th>
                         <th>
@@ -56,6 +59,9 @@
                             </td>
                             <td>
                                 {{ $user->email_verified_at ?? '' }}
+                            </td>
+                            <td>
+                                {{ $user->created_at->format('d/m/Y') ?? '' }}
                             </td>
                             <td>
                                 @foreach($user->roles as $key => $item)
