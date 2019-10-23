@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\DB;
 use App\Role;
 use App\User;
 
@@ -17,7 +18,41 @@ class UsersController extends Controller
 
         $users = User::all();
 
+
+        // $fournisseur = DB::table('users')
+        //     ->leftJoin('roles', 'users.id', '=', 'roles.user_id')
+        //     ->get();
+        //     var_dump($fournisseur);
+        //     die();
+
+        // $fournisseur = CategoryModel::select('catID', 'catName', 'imgPath')
+        //                    ->where('catType', '=', 'Root')
+        //                    ->get();
+        //
         return view('admin.users.index', compact('users'));
+    }
+
+    public function fournisseur()
+    {
+        abort_unless(\Gate::allows('user_access'), 403);
+        /*
+        $categories = CategoryModel::select('catID', 'catName', 'imgPath')
+                           ->where('catType', '=', 'Root')
+                           ->get();
+        */
+
+        $users = User::all();
+
+        return view('admin/users/fournisseurs', compact('users'));
+    }
+
+    public function client()
+    {
+        abort_unless(\Gate::allows('user_access'), 403);
+
+        $users = User::all();
+
+        return view('admin/users/clients', compact('users'));
     }
 
     public function create()

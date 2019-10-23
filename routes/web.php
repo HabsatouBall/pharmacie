@@ -30,5 +30,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('ventes', 'VenteController');
 
     Route::resource('categories', 'CategorieController');
+    //Route::delete('users/fournisseur', 'UsersController@fournisseur')->name('users.fournisseur');
+    Route::delete('users/client', 'UsersController@client')->name('users.client');
+
+    Route::get('users/fournisseur', function () {
+      return view('admin/users/fournisseurs');
+    });
+
 
 });
